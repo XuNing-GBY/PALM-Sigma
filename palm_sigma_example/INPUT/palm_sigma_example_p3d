@@ -5,20 +5,21 @@
 
 !--- NUMERICAL GRID
 
-         nx = 255,    ny = 255,    nz = 128,    
+         nx = 63,     ny = 63,     nz = 80,    
          dx = 4.6875, dy = 4.6875, dz = 2.0,
 
-         dz_stretch_level  = 64.0,
-         dz_stretch_factor = 1.025,
-         dz_max = 16.0,
+         dz_stretch_level = 16.0,
+         dz_stretch_factor = 1.038,
+         dz_max = 24.0,
 
 
 !--- VELOCITY PROFILES
  
-         initializing_actions = 'set_1d-model_profiles',
+         initializing_actions = 'set_constant_profiles',
 
-         ug_surface = 5.0,
-         vg_surface = 0.0,
+         ug_surface =  5.0,
+         vg_surface =  0.0,
+
 
 !--- TEMPERATURE
          
@@ -27,20 +28,13 @@
          pt_vertical_gradient = 6.0, 0.35,
          pt_vertical_gradient_level = 600.0, 700.0,
 
+
 !--- RAYLEIGH DAMPING
 
          rayleigh_damping_height = 600.0,
          rayleigh_damping_factor = 0.01,
          !galilei_transformation = .T.,
 
-!--- 1D MODEL SETUP
-
-         mixing_length_1d = 'blackadar',      ! default
-         dissipation_1d = 'detering',         ! default
-         end_time_1d = 864000.0,              ! default
-         dt_run_control_1d = 3600.0,  
-         dt_pr_1d = 86400.0,
-         damp_level_1d = 600.0,       
 
 !--- BOUNDARY CONDITIONS
 
@@ -57,10 +51,7 @@
          bc_uv_b = 'dirichlet',
          bc_uv_t = 'neumann',
 
-         !bc_pt_b = 'neumann',
-         !surface_heatflux = 0.0,
-
-         roughness_length = 0.0002,           ! 0.1 - default
+         roughness_length = 0.0002,            ! 0.1 - default
          z0h_factor = 1.0,                    ! 1.0 - default, active if constant_flux_layer = .T.
 
 
@@ -73,23 +64,21 @@
 
 
 !--- NUMERICS
+
          momentum_advec = 'ws-scheme',        ! default
          scalar_advec = 'ws-scheme',          ! default
 
          psolver = 'multigrid',
-         !mg_cycles = 16,
-         !residual_limit = 1.0E-6,
-         !psolver = 'sor',
-         !nsor = 100,
 
          /
+
 
  &wind_wave_inta_parameters
 
          wwinta_mode = 'sfc',
          wave_type = 'regular',
-         wave_amplitude = 1.6,
-         wave_number = 0.06283,
+         wave_amplitude = 2.0,
+         wave_number = 0.0628,
          wave_direction = 270.0,
 
          /
@@ -103,7 +92,7 @@
          netcdf_data_format = 4,
 
          end_time = 72000.0,
-         termination_time_needed = 200.0,
+         termination_time_needed = 600.0,
 
          create_disturbances = .T.,
 !         dt_disturb = 300.0,
@@ -145,9 +134,9 @@
                           'u_xz', 'v_xz', 'w_xz', 'p_xz', 'theta_xz',
                           'u', 'v', 'w', 'p',
 
-         section_xy = 0, 1, 6, 14, 44, 62, 83,
-         section_xz = 128,
-         section_yz = 128,
+         section_xy = 0, 1, 6, 13, 21, 33,
+         section_xz = 32,
+         section_yz = 32,
 
          /
 

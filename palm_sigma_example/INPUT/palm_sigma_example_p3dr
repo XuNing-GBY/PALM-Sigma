@@ -7,15 +7,17 @@
 
          /
 
+
  &wind_wave_inta_parameters
 
          wwinta_mode = 'sfc',
          wave_type = 'regular',
-         wave_amplitude = 1.6,
-         wave_number = 0.06283,
+         wave_amplitude = 2.0,
+         wave_number = 0.0628,
          wave_direction = 270.0,
 
          /
+
 
 !--------------------------------
 !--- RUNTIME PARAMETERS
@@ -25,8 +27,8 @@
 
          netcdf_data_format = 4,
 
-         end_time = 73800.0,
-         termination_time_needed = 200.0,
+         end_time = 72000.0,
+         termination_time_needed = 600.0,
 
          create_disturbances = .T.,
 !         dt_disturb = 300.0,
@@ -68,9 +70,9 @@
                           'u_xz', 'v_xz', 'w_xz', 'p_xz', 'theta_xz',
                           'u', 'v', 'w', 'p',
 
-         section_xy = 0, 1, 6, 14, 44, 62, 83,
-         section_xz = 128,
-         section_yz = 128,
+         section_xy = 0, 1, 6, 13, 21, 33,
+         section_xz = 32,
+         section_yz = 32,
 
          /
 
